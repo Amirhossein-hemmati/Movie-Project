@@ -1,5 +1,24 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Tailwind CSS + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This starter template helps you quickly begin development with **Vue 3**, **TypeScript**, **Tailwind CSS**, and **Vite**. It uses the modern `<script setup>` syntax and is ideal for building fast, scalable, and beautiful front-end applications.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+---
+
+## 🚀 Features
+
+- ⚡️ [Vite](https://vitejs.dev/) for fast builds and hot module replacement
+- 🖖 [Vue 3](https://vuejs.org/)
+- 🔷 [TypeScript](https://www.typescriptlang.org/)
+- 🎨 [Tailwind CSS](https://tailwindcss.com/)
+- 📦 PostCSS + Autoprefixer
+- 🔧 Ready-to-use configuration
+
+---
+
+## 📦 Project Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Amirhossein-hemmati/Movie-Project.git
+cd Movie-Project
