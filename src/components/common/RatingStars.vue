@@ -37,7 +37,7 @@ function handleRate(star: number) {
 <template>
   <div class="flex justify-center items-center gap-2">
     <!-- Stars -->
-    <div class="flex gap-1 cursor-pointer">
+    <div class="flex gap-x-1">
       <svg
         v-for="star in maxStars"
         :key="star"
@@ -50,7 +50,7 @@ function handleRate(star: number) {
           'text-yellow-400': star <= (userRating ?? averageRating),
           'text-gray-400': star > (userRating ?? averageRating),
           'cursor-pointer': editable && !hasRated,
-          'cursor-not-allowed': !editable || hasRated,
+          'cursor-default': !editable || hasRated,
         }"
       >
         <path
@@ -60,17 +60,17 @@ function handleRate(star: number) {
     </div>
 
     <!-- Average Display -->
-    <div class="flex justify-center items-center">
+    <div class="min-w-max flex justify-center items-center gap-x-1">
       <span class="text-[18px]">10/</span>
       <span class="text-[24px] font-bold">
         {{ averageRating.toFixed(1) }}
       </span>
       
+      <div class="w-full h-full">
+        <img src="../../assets/images/IMDB.svg"/>
+      </div>
       </div>
 
-    <div>
-      <img src="../../assets/images/IMDB.svg"/>
-    </div>
 
     <!-- Lock message -->
     <div v-if="hasRated" class="text-xs text-green-400">

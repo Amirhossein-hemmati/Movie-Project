@@ -73,8 +73,8 @@ const data = [
       <div >
         <span class="font-bold">{{ item.title }}</span>
         <div class="flex justify-start items-center">
-          <span class="w-[145px] flex justify-start">{{ item.season }}</span>
-          <span class="w-[145px] flex justify-start">{{ item.episode }}</span>
+          <span class="w-[145px] flex justify-start text-[14px] font-light">{{ item.season }}</span>
+          <span class="w-[145px] flex justify-start text-[14px] font-light">{{ item.episode }}</span>
         </div>
         <div class="flex justify-start items-center gap-x-[2px]">
           <!-- fire -->

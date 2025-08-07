@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import webLogo from "../../assets/images/FilmTarsnakLogo.svg";
 const style = {
-  link: "font-bold cursor-pointer",
+  link: " cursor-pointer",
   menu: "w-12 h-12 bg-[#1B1C1F] flex justify-center items-center rounded-[4px] cursor-pointer",
 };
 </script>
