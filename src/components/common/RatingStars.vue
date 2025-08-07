@@ -1,41 +1,54 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, onMounted } from "vue"
 
 const props = defineProps<{
-  maxStars?: number;
-  initialRating?: number;
-  localStorageKey?: string;
-  editable?: boolean;
-}>();
+  editable?: boolean
+  movieData: {
+    user_rating: number
+  }
+  maxStars?: number
+}>()
 
-const editable = props.editable ?? true;
+const emit = defineEmits<{
+  (e: "update-rating", newAverage: number): void
+}>()
 
-const maxStars = props.maxStars ?? 5;
-const initialRating = props.initialRating ?? 3.5;
-const localStorageKey = props.localStorageKey ?? "user-rating-locked";
+const editable = props.editable ?? true
+const maxStars = props.maxStars ?? 5
 
-const userRating = ref<number | null>(null);
-const averageRating = ref<number>(initialRating);
-const totalVotes = ref<number>(1); // assume one vote for initial average
-const hasRated = ref(false);
+const userRating = ref<number | null>(null)
+const hasRated = ref(false)
+const averageRating = ref(props.movieData?.user_rating)
+const voteCount = ref(1) // Default to 1 if missing
+
+const storageKey = `movie-rated-${props.movieData?.id}`
 
 onMounted(() => {
-  hasRated.value = !!localStorage.getItem(localStorageKey);
-});
+  const stored = localStorage.getItem(storageKey)
+  if (stored) {
+    userRating.value = Number(stored)
+    hasRated.value = true
+  }
+})
 
 function handleRate(star: number) {
-  if (!editable || hasRated.value) return;
-  userRating.value = star;
-  totalVotes.value++;
-  averageRating.value =
-    (averageRating.value * (totalVotes.value - 1) + star) / totalVotes.value;
-  hasRated.value = true;
-  localStorage.setItem(localStorageKey, "1");
+  if (hasRated.value || !editable) return
+
+  userRating.value = star
+  hasRated.value = true
+  localStorage.setItem(storageKey, String(star))
+
+  // Recalculate average (naive, local only)
+  const totalScore = averageRating.value * voteCount.value + star
+  voteCount.value++
+  averageRating.value = +(totalScore / voteCount.value).toFixed(2)
+
+  emit("update-rating", averageRating.value)
 }
 </script>
 
 <template>
-  <div class="flex justify-center items-center gap-2">
+  <div class="flex flex-col items-center gap-2">
     <!-- Stars -->
     <div class="flex gap-x-1">
       <svg
@@ -60,20 +73,12 @@ function handleRate(star: number) {
     </div>
 
     <!-- Average Display -->
-    <div class="min-w-max flex justify-center items-center gap-x-1">
-      <span class="text-[18px]">10/</span>
-      <span class="text-[24px] font-bold">
-        {{ averageRating.toFixed(1) }}
-      </span>
-      
-      <div class="w-full h-full">
-        <img src="../../assets/images/IMDB.svg"/>
-      </div>
-      </div>
-
+    <div class="text-sm text-gray-700">
+      آرامی مردمی ({{ averageRating }})
+    </div>
 
     <!-- Lock message -->
-    <div v-if="hasRated" class="text-xs text-green-400">
+    <div v-if="hasRated" class="text-xs text-green-500">
       شما قبلاً امتیاز داده‌اید.
     </div>
   </div>
