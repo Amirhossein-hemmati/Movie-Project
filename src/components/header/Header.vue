@@ -34,7 +34,7 @@ const style = {
 
       <!-- bookmarks -->
       <span :class="style.menu">
-        <img src="../../assets/icons/bookmark.svg" alt="bookmark" />
+        <img src="../../assets/icons/bookmarks.svg" alt="bookmarks" />
       </span>
 
       <!-- search -->
