@@ -19,6 +19,7 @@ const style = {
         <a :class="style.link">فیلم</a>
         <a :class="style.link">سریال</a>
         <a :class="style.link">بازیگران</a>
+        <a :class="style.link">جدید ترین دوبله ها</a>
       </div>
     </div>
     <div class="flex justify-center items-center gap-1">
