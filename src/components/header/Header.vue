@@ -8,7 +8,7 @@ const style = {
 
 <template>
   <div
-    class="w-full bg-[#242629] text-white flex justify-between items-center !px-30 !py-2"
+    class="sticky top-0 z-50 w-full bg-[#242629] text-white flex justify-between items-center !px-30 !py-2"
   >
     <div class="flex justify-center items-center gap-x-6">
       <span>

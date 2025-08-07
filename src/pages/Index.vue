@@ -2,6 +2,7 @@
 import BackButton from '../components/common/BackButton.vue';
 import PlayerType from '../components/movie/PlayerType.vue';
 import SidebarListMovie from '../components/movie/SidebarListMovie.vue';
+import SubscriptionPurchase from '../components/movie/SubscriptionPurchase.vue';
 import VideoInformation from '../components/movie/VideoInformation.vue';
 import VideoPlayArea from '../components/movie/VideoPlayArea.vue';
 
@@ -17,6 +18,7 @@ import VideoPlayArea from '../components/movie/VideoPlayArea.vue';
     <div class="w-2/3">
       <VideoPlayArea/>
       <PlayerType/>
+      <SubscriptionPurchase/>
     </div>
     <div class="w-1/3 h-full">
       <SidebarListMovie/>

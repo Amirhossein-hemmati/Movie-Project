@@ -14,13 +14,13 @@ const selectPlayer = (value: string) => {
 </script>
 
 <template>
-  <div class="flex justify-between items-center text-[12px]">
+  <div class="flex justify-between items-center text-[12px] mt-2">
     <!-- Player options -->
-    <div class="text-white font-bold  flex justify-start items-center">
+    <div class="text-white font-bold  flex justify-start items-center gap-x-1">
       <div
         v-for="(player, index) in players"
         :key="index"
-        class="p-3 cursor-pointer"
+        class="p-3 cursor-pointer rounded-[4px]"
         :class="{
           'bg-[#AB070F99]': selectedPlayer === player.value,
           'bg-[#242629]': selectedPlayer !== player.value
