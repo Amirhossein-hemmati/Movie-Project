@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import RatingStars from "../common/RatingStars.vue";
+import RatingSection from "./RatingSection.vue";
 
+const props =defineProps(['movieData'])
 const qualities = [
   { label: "کیفیت 480p - webdl", value: "480p" },
   { label: "کیفیت 720p - webdl", value: "720p" },
@@ -30,21 +32,28 @@ function selectQuality(item: { label: string; value: string }) {
           <img src="../../assets/images/1080pResolutions.svg" />
         </span>
         <div class="flex flex-col justify-center items-start">
-          <span class="text-[28px] font-bold">سریال EL Camino</span>
-          <span class="text-[14px]">فیلم ال کامینو</span>
+          <span class="text-[28px] font-bold flex justify-center items-center gap-x-1">
+            <span>سریال</span>
+            <span>{{ movieData?.title_en }}</span>
+          </span>
+          <span class="text-[14px] flex justify-center items-center gap-x-1">
+            <span>{{ movieData?.title_fa }}</span>
+            <span>({{ movieData?.year }})</span>
+          </span>
         </div>
       </div>
     </div>
     <div class="flex justify-end items-center gap-x-2">
       <!-- chapter -->
-      <div class="min-w-max flex justify-center items-center gap-x-2">
+      <!-- <div class="min-w-max flex justify-center items-center gap-x-2">
         <span>
           <img src="../../assets/icons/play-circle.svg" alt="play" />
         </span>
         <span class="text-[14px] font-bold">فصل 3 قسمت 5</span>
-      </div>
-      <div class="relative">
-        <!-- Selected Box -->
+      </div> -->
+      
+      <!-- Selected Box -->
+      <!-- <div class="relative">
         <div
           class="w-[183px] bg-[#242629] text-white text-[14px] p-3 rounded-[8px] cursor-pointer flex items-center justify-between"
           @click="toggleDropdown"
@@ -52,7 +61,6 @@ function selectQuality(item: { label: string; value: string }) {
           <div
             class="w-full flex items-center justify-center flex-row-reverse gap-2"
           >
-            <!-- Arrow Icon -->
             <div>
               <img src="../../assets/icons/left-arrow.svg" class="-rotate-90" />
             </div>
@@ -60,7 +68,6 @@ function selectQuality(item: { label: string; value: string }) {
           </div>
         </div>
 
-        <!-- Dropdown Options -->
         <div
           v-if="isOpen"
           class="absolute z-10 w-full mt-2 bg-[#242629] text-white rounded shadow-lg"
@@ -74,10 +81,11 @@ function selectQuality(item: { label: string; value: string }) {
             {{ item.label }}
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- rating -->
       <RatingStars />
+      <RatingSection :movieData="movieData"/>
       <div class="flex justify-center items-center gap-x-2">
         <!-- bookmark -->
         <span
