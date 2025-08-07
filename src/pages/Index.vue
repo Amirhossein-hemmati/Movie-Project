@@ -13,10 +13,10 @@ import VideoPlayArea from '../components/movie/VideoPlayArea.vue';
   </div>
   <VideoInformation/>
   <div class="flex justify-center items-center gap-x-6">
-    <div>
+    <div class="w-2/3">
       <VideoPlayArea/>
     </div>
-    <div>
+    <div class="w-1/3">
       <SidebarListMovie/>
     </div>
   </div>

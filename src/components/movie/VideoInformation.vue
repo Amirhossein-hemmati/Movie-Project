@@ -24,7 +24,7 @@ function selectQuality(item: { label: string; value: string }) {
 <template>
   <div class="flex justify-start items-center gap-x-2 py-2">
     <!-- title -->
-    <div class="w-[400px] flex items-center justify-start gap-x-2">
+    <div class="w-[454px] flex items-center justify-start gap-x-2">
       <span>
         <img src="../../assets//images/1080pResolutions.svg" />
       </span>
