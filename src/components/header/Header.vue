@@ -15,11 +15,11 @@ const style = {
         <img :src="webLogo" alt="Filmtarsnak-Logo" />
       </span>
       <div class="flex justify-center items-center gap-x-6">
-        <a :class="style.link">دسته بندی‌ها</a>
-        <a :class="style.link">فیلم</a>
-        <a :class="style.link">سریال</a>
-        <a :class="style.link">بازیگران</a>
-        <a :class="style.link">جدید ترین دوبله ها</a>
+        <a href="#" :class="style.link">دسته بندی‌ها</a>
+        <a href="#" :class="style.link">فیلم</a>
+        <a href="#" :class="style.link">سریال</a>
+        <a href="#" :class="style.link">بازیگران</a>
+        <a href="#" :class="style.link">جدید ترین دوبله ها</a>
       </div>
     </div>
     <div class="flex justify-center items-center gap-1">
