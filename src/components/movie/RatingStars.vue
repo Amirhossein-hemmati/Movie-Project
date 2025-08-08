@@ -6,12 +6,10 @@ import { useOpenSurveyStore } from "@/store/useOpenSurveyStore";
 const props = defineProps(["movieData", "maxStars"]);
 const userRating = useUserRating();
 const content = useOpenSurveyStore();
-
 const maxStars = props.maxStars ?? 5;
 const starSize = 32;
 const storageKey = `movie-rated-${props.movieData?.id}`;
 const storedSurvey = ref(localStorage.getItem(storageKey));
-
 const rating = computed(() => userRating?.userRatingInf?.rating ?? 0);
 
 function getStarFill(index: number): number {

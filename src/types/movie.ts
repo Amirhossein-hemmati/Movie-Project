@@ -22,8 +22,14 @@ export interface ISendRate {
   rate: number
 }
 
-export interface UserRating {
+export interface IMovieUrlResponse {
   id: number;
   rating: number;
 }
+
+export interface UserRating {
+  subtitle: string;
+  video_url: string;
+}
+
 

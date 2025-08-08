@@ -49,7 +49,7 @@ onMounted(() => {
     <VideoInformation :movieData="data" />
     <div class="flex justify-center items-start gap-x-6">
       <div class="w-[65%]">
-        <VideoPlayArea />
+        <VideoPlayArea :cover="data?.poster"/>
         <PlayerType />
         <SubscriptionPurchase />
       </div>
