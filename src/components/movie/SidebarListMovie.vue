@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { useOpenSurveyStore } from "@/store/useOpenSurveyStore";
 import SurveyMovie from "./SurveyMovie.vue";
 
-const props = defineProps(["episodes"]);
+const props = defineProps(["movieData"]);
 const content = useOpenSurveyStore();
 const isOpen = computed(() => content.isOpen)
 </script>
@@ -12,7 +12,7 @@ const isOpen = computed(() => content.isOpen)
   <div class="h-[464px] overflow-y-auto">
     <div
       v-if="!isOpen"
-      v-for="item in episodes"
+      v-for="item in movieData?.episodes"
       class="h-[122px] flex justify-start items-center gap-x-2 opacity-60 hover:opacity-100 transition-opacity duration-200 cursor-pointer p-[2px]"
       :key="item.number"
     >
@@ -72,6 +72,6 @@ const isOpen = computed(() => content.isOpen)
         </div>
       </div>
     </div>
-    <SurveyMovie v-else/>
+    <SurveyMovie :movieData="movieData" v-else/>
   </div>
 </template>

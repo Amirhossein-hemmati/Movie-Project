@@ -17,3 +17,13 @@ export interface IMovieResponse {
   user_rating: number;
   year: number;
 }
+
+export interface ISendRate {
+  rate: number
+}
+
+export interface UserRating {
+  id: number;
+  rating: number;
+}
+

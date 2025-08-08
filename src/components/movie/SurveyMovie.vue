@@ -3,23 +3,49 @@ div
 import { computed, ref } from "vue";
 import { useOpenSurveyStore } from "@/store/useOpenSurveyStore";
 import RatingStarsAction from "./RatingStarsAction.vue";
+import { apipostSurveyUser } from "@/api/movie";
+import { useUserRating } from "@/store/useUserRating";
 
+const props = defineProps(["movieData"]);
 const content = useOpenSurveyStore();
 const checked = ref(false);
 const showInput = ref(false);
 const inputText = ref("");
 const maxLength = 300;
 const charCount = computed(() => inputText.value.length);
+const userRate = ref();
+const isLoading = ref(false);
+const newUserRating = useUserRating();
 
+function handleUserRated(data: number) {
+  userRate.value = data;
+}
 
-function handleUserRated (data) {
-console.log(data)
+function handleSendSurvey() {
+  isLoading.value = true;
+  apipostSurveyUser(userRate.value)
+    .then((result) => {
+      localStorage.setItem(`movie-rated-${props.movieData?.id}`, userRate.value);
+      newUserRating.setUserRate({
+        id: props.movieData?.id,
+        rating: result?.new_rating,
+      });
+      content.closeContent();
+      alert("نظر شما با موفقیت ثبت شد.");
+    })
+    .catch((e) => console.log(e))
+    .finally(() => {
+      isLoading.value = false;
+    });
 }
 </script>
 
 <template>
   <div class="relative">
-    <span class="absolute top-1 left-1 cursor-pointer" @click="content.closeContent()">
+    <span
+      class="absolute top-1 left-1 cursor-pointer"
+      @click="content.closeContent()"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -124,6 +150,8 @@ console.log(data)
           @rating="handleUserRated"
         />
         <button
+          :disabled="isLoading"
+          @click="handleSendSurvey"
           class="flex justify-center items-center gap-x-[9px] bg-[#AB070F] text-[14px] px-6 py-[10px] rounded-tl-[4px] rounded-tr-[4px] rounded-br-[4px] rounded-bl-[12px] cursor-pointer"
         >
           <span>

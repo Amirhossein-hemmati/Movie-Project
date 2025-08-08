@@ -1,28 +1,52 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useMovieData } from '@/store/useMovieData'
+import { computed, onMounted, ref, watch } from "vue";
+import { useUserRating } from "@/store/useUserRating";
+import { useOpenSurveyStore } from "@/store/useOpenSurveyStore";
 
-const props = defineProps<{
-  maxStars?: number
-}>()
+const props = defineProps(["movieData", "maxStars"]);
+const userRating = useUserRating();
+const content = useOpenSurveyStore();
 
-const maxStars = props.maxStars ?? 5
-const starSize = 32
+const maxStars = props.maxStars ?? 5;
+const starSize = 32;
+const storageKey = `movie-rated-${props.movieData?.id}`;
+const storedSurvey = ref(localStorage.getItem(storageKey));
 
-const data = useMovieData()
-const rating = computed(() => data.movieData?.user_rating ?? 0)
+const rating = computed(() => userRating?.userRatingInf?.rating ?? 0);
 
 function getStarFill(index: number): number {
-  if (index <= Math.floor(rating.value)) return 100
+  if (index <= Math.floor(rating.value)) return 100;
   if (index === Math.floor(rating.value) + 1) {
-    return (rating.value - Math.floor(rating.value)) * 100
+    return (rating.value - Math.floor(rating.value)) * 100;
   }
-  return 0
+  return 0;
 }
+
+function handleOpenSurvey() {
+  if (!storedSurvey.value) {
+    content.openContent?.();
+  } else {
+    alert("شما قبلا نظر خود را درباره این سریال وارد کرده اید.");
+  }
+}
+
+watch(rating, (newVal) => {
+  if (newVal > 0 && !storedSurvey.value) {
+    localStorage.setItem(storageKey, "true");
+    storedSurvey.value = "true"
+  }
+})
 </script>
 
+
 <template>
-  <div class="flex justify-center items-center gap-x-1" style="direction: ltr">
+  <div
+    class="flex justify-center items-center gap-x-1"
+    :class="{ 'cursor-pointer': !storedSurvey }"
+    style="direction: ltr"
+    :title="storedSurvey ? '' : 'نظرسنجی کنید'"
+    @click="handleOpenSurvey"
+  >
     <div
       v-for="star in maxStars"
       :key="star"
@@ -54,7 +78,7 @@ function getStarFill(index: number): number {
         />
       </svg>
     </div>
-    <div class="h-full text-[12px] flex justify-center items-end ">
+    <div class="h-full text-[12px] flex justify-center items-end">
       <span>امتیاز کاربران</span>
       <span>({{ rating }})</span>
     </div>

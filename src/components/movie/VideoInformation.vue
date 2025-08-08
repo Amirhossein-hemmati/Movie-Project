@@ -91,6 +91,7 @@ const isOpen = ref(false);
         :width="8"
         :height="8"
         :showResultNumber="true"
+        :movieData="movieData"
       />
       <RatingSection :movieData="movieData" />
       <div class="flex justify-center items-center gap-x-2">

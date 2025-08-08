@@ -6,45 +6,56 @@ import SidebarListMovie from "../components/movie/SidebarListMovie.vue";
 import SubscriptionPurchase from "../components/movie/SubscriptionPurchase.vue";
 import VideoInformation from "../components/movie/VideoInformation.vue";
 import VideoPlayArea from "../components/movie/VideoPlayArea.vue";
-import { apiGetAllMovies } from "../api/movie";
-import { useMovieData } from "@/store/useMovieData";
+import { apiGetAllMovies } from "@/api/movie";
+import { useUserRating } from "@/store/useUserRating";
 
 const isLoading = ref();
-const data = useMovieData();
+const data = ref();
+const userRating = useUserRating();
 
-function getAllMovie() {
+function getAllMovieData() {
   isLoading.value = true;
   apiGetAllMovies()
     .then((result) => {
-      console.log(result);
-      data.setMovieData(result);
+      data.value = result;
+      userRating.setUserRate({
+        id: result?.id,
+        rating: result?.user_rating,
+      });
     })
-    .catch((e) => {
-      console.log(e?.message || e);
-    })
+    .catch((e) => console.log(e))
     .finally(() => {
       isLoading.value = false;
     });
 }
 
 onMounted(() => {
-  getAllMovie();
+  getAllMovieData();
 });
 </script>
 
 <template>
-  <div class="w-full flex justify-end mt-2">
-    <BackButton />
+  <div
+    v-if="isLoading"
+    class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-center"
+  >
+    در حال دریافت اطلاعات
   </div>
-  <VideoInformation :movieData="data.movieData" />
-  <div class="flex justify-center items-start gap-x-6">
-    <div class="w-3/5">
-      <VideoPlayArea />
-      <PlayerType />
-      <SubscriptionPurchase />
+
+  <div v-else>
+    <div class="w-full flex justify-end mt-2">
+      <BackButton />
     </div>
-    <div class="w-2/5 h-full">
-      <SidebarListMovie :episodes="data.movieData?.episodes" />
+    <VideoInformation :movieData="data" />
+    <div class="flex justify-center items-start gap-x-6">
+      <div class="w-[65%]">
+        <VideoPlayArea />
+        <PlayerType />
+        <SubscriptionPurchase />
+      </div>
+      <div class="w-[35%] h-full">
+        <SidebarListMovie :movieData="data" />
+      </div>
     </div>
   </div>
 </template>
