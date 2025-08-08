@@ -10,7 +10,6 @@ This starter template helps you quickly begin development with **Vue 3**, **Type
 - 🖖 [Vue 3](https://vuejs.org/)
 - 🔷 [TypeScript](https://www.typescriptlang.org/)
 - 🎨 [Tailwind CSS](https://tailwindcss.com/)
-- 📦 PostCSS + Autoprefixer
 - 🔧 Ready-to-use configuration
 
 ---
@@ -22,3 +21,4 @@ This starter template helps you quickly begin development with **Vue 3**, **Type
 ```bash
 git clone https://github.com/Amirhossein-hemmati/Movie-Project.git
 cd Movie-Project
+npm run movie
