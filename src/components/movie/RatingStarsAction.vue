@@ -35,7 +35,7 @@ function isStarFilled(star: number) {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        :class="isStarFilled(star) ? 'text-yellow-400' : 'text-gray-300'"
+        :class="isStarFilled(star) ? 'text-[#F3B209]' : 'text-[#5A5E66]'"
         class="w-full h-full transition-colors"
       >
         <path

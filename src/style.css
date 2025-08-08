@@ -14,5 +14,17 @@ body {
 }
 
 @theme {
-  --color-primary: #1B1C1F
+  /* Colors */
+  --color-primary: #1b1c1f;
+  --color-secondary: #242629;
+
+  --color-error: #AB070F;
+
+  /* Font sizes */
+  --font-xs: 0.75rem; /* 12px */
+  --font-sm: 0.875rem; /* 14px */
+
+  /* Border radius */
+  --rounded-sm: 4px;
+  --rounded-md: 8px;
 }

@@ -66,13 +66,13 @@ function handleSendSurvey() {
     </span>
 
     <div
-      class="bg-[#242629] rounded p-6 text-white flex flex-col justify-center items-center gap-y-2"
+      class="bg-secondary rounded p-6 text-white flex flex-col justify-center items-center gap-y-2"
     >
       <!-- suggestion -->
       <h2 class="text-lg font-bold text-center">
         آیا تماشای سریال {{}} را به دیگران پیشنهاد می کنید؟
       </h2>
-      <p class="text-[14px] text-center">نظر خود را در این رابطه بنویسید</p>
+      <p class="text-sm text-center">نظر خود را در این رابطه بنویسید</p>
 
       <!-- checkbox -->
       <div class="w-full">
@@ -81,7 +81,7 @@ function handleSendSurvey() {
         >
           <input type="checkbox" v-model="checked" class="peer hidden" />
           <div
-            class="w-4 h-4 rounded-[4px] border border-white flex items-center justify-center transition-colors peer-checked:bg-white peer-checked:text-black"
+            class="w-4 h-4 rounded-sm border border-white flex items-center justify-center transition-colors peer-checked:bg-white peer-checked:text-black"
           >
             <svg
               class="w-3 h-3 hidden peer-checked:block"
@@ -95,21 +95,21 @@ function handleSendSurvey() {
               />
             </svg>
           </div>
-          <span class="text-white font-light text-[14px]"
+          <span class="text-white font-light text-sm"
             >این نظر حاوی اسپویل هست</span
           >
         </label>
       </div>
       <!-- allowing film criticism -->
       <div
-        class="w-full flex flex-col justify-center items-start text-[14px] font-light"
+        class="w-full flex flex-col justify-center items-start text-sm font-light"
       >
         <div class="flex justify-start items-center gap-1">
           <div
-            class="px-4 p-3 cursor-pointer rounded-[4px]"
+            class="px-4 p-3 cursor-pointer rounded-sm"
             :class="{
-              'bg-[#341A1B] text-white border border-[#AB070F]': !showInput,
-              'bg-[#242629] text-white': showInput,
+              'bg-[#341A1B] text-white border border-error': !showInput,
+              'bg-secondary text-white': showInput,
             }"
             @click="showInput = false"
           >
@@ -117,10 +117,10 @@ function handleSendSurvey() {
           </div>
 
           <div
-            class="px-4 py-3 cursor-pointer rounded-[4px]"
+            class="px-4 py-3 cursor-pointer rounded-sm"
             :class="{
-              'bg-[#341A1B] text-white border border-[#AB070F]': showInput,
-              'bg-[#1B1C1F] text-white ': !showInput,
+              'bg-[#341A1B] text-white border border-error': showInput,
+              'bg-primary text-white ': !showInput,
             }"
             @click="showInput = true"
           >
@@ -134,7 +134,7 @@ function handleSendSurvey() {
             :maxlength="maxLength"
             type="text"
             placeholder="متن نظر"
-            class="rounded-[8px] px-3 py-2 w-full h-[84px] bg-primary text-white"
+            class="rounded-md px-3 py-2 w-full h-[84px] bg-primary text-white"
           />
           <div class="absolute bottom-3 left-3 mt-1 text-sm text-gray-300">
             {{ charCount }}/{{ maxLength }}
@@ -152,7 +152,7 @@ function handleSendSurvey() {
         <button
           :disabled="isLoading"
           @click="handleSendSurvey"
-          class="flex justify-center items-center gap-x-[9px] bg-[#AB070F] text-[14px] px-6 py-[10px] rounded-tl-[4px] rounded-tr-[4px] rounded-br-[4px] rounded-bl-[12px] cursor-pointer"
+          class="flex justify-center items-center gap-x-[9px] bg-error text-sm px-6 py-[10px] rounded-tl-sm rounded-tr-sm rounded-br-sm rounded-bl-[12px] cursor-pointer"
         >
           <span>
             <img src="@/assets/icons/tick-circle.svg" />

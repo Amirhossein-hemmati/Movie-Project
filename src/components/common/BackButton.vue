@@ -11,10 +11,10 @@ function handleBackButton () {
 
 <template>
   <button
-    class=" bg-[#242629] text-white flex justify-between items-center px-4 py-3 rounded-[4px] gap-x-1"
+    class=" bg-secondary text-white flex justify-between items-center px-4 py-3 rounded-sm gap-x-1"
     @click="handleBackButton"
   >
-    <span class="text-[14px] font-bold"> بازگشت </span>
+    <span class="text-sm font-bold"> بازگشت </span>
     <!-- left arrow -->
     <span class="w-6 h-6 flex justify-center items-center cursor-pointer">
       <img src="@/assets/icons/left-arrow.svg" alt="left-Arrow" />

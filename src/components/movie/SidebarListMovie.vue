@@ -19,7 +19,7 @@ const isOpen = computed(() => content.isOpen);
         >
           <div>
             <img
-              class="w-[88px] h-full rounded-[4px]"
+              class="w-[88px] h-full rounded-sm"
               :src="item.poster"
               :alt="item.title"
             />
@@ -30,17 +30,17 @@ const isOpen = computed(() => content.isOpen);
               v-if="item.season && item.episode"
               class="flex justify-start items-center"
             >
-              <span class="w-[145px] flex justify-start text-[14px] font-light">
+              <span class="w-[145px] flex justify-start text-sm font-light">
                 {{ item.season }}
               </span>
-              <span class="w-[145px] flex justify-start text-[14px] font-light">
+              <span class="w-[145px] flex justify-start text-sm font-light">
                 {{ item.episode }}
               </span>
             </div>
             <div class="flex justify-start items-center gap-x-[2px]">
               <!-- fire -->
               <span
-                class="w-6 h-6 flex justify-center items-center bg-[#FB7800] p-[2px] rounded-[4px]"
+                class="w-6 h-6 flex justify-center items-center bg-[#FB7800] p-[2px] rounded-sm"
               >
                 <img
                   src="@/assets/icons/fire.svg"
@@ -50,7 +50,7 @@ const isOpen = computed(() => content.isOpen);
 
               <!-- subtitle -->
               <div
-                class="h-6 flex justify-center items-center bg-[#245DEF] gap-x-[2px] py-1 px-[2px] rounded-[4px]"
+                class="h-6 flex justify-center items-center bg-[#245DEF] gap-x-[2px] py-1 px-[2px] rounded-sm"
               >
                 <span>
                   <img
@@ -58,12 +58,12 @@ const isOpen = computed(() => content.isOpen);
                     :alt="`subtitle + ${item.id}`"
                   />
                 </span>
-                <span class="text-[12px] font-bold">زیرنویس</span>
+                <span class="text-xs font-bold">زیرنویس</span>
               </div>
 
               <!-- dubbed movie -->
               <div
-                class="h-6 flex justify-center items-center bg-[#43B100] gap-x-[2px] p-1 rounded-[4px]"
+                class="h-6 flex justify-center items-center bg-[#43B100] gap-x-[2px] p-1 rounded-sm"
               >
                 <span>
                   <img
@@ -71,7 +71,7 @@ const isOpen = computed(() => content.isOpen);
                     :alt="`dubbed + ${item.id}`"
                   />
                 </span>
-                <span class="text-[12px] font-bold">دوبله</span>
+                <span class="text-xs font-bold">دوبله</span>
               </div>
             </div>
           </div>

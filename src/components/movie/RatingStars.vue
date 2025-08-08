@@ -56,7 +56,7 @@ watch(rating, (newVal) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        class="text-gray-300 absolute top-0 left-0 w-full h-full"
+        class="text-[#5A5E66] absolute top-0 left-0 w-full h-full"
       >
         <path
           d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.95a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.444a1 1 0 00-.364 1.118l1.286 3.951c.3.921-.755 1.688-1.54 1.118l-3.36-2.443a1 1 0 00-1.176 0l-3.36 2.443c-.784.57-1.838-.197-1.539-1.118l1.285-3.951a1 1 0 00-.364-1.118L2.075 9.377c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.95z"
@@ -68,7 +68,7 @@ watch(rating, (newVal) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        class="text-yellow-400 absolute top-0 left-0 w-full h-full"
+        class="text-[#F3B209] absolute top-0 left-0 w-full h-full"
         :style="{ clipPath: `inset(0 ${100 - getStarFill(star)}% 0 0)` }"
       >
         <path
@@ -76,7 +76,7 @@ watch(rating, (newVal) => {
         />
       </svg>
     </div>
-    <div class="h-full text-[12px] flex justify-center items-end">
+    <div class="h-full text-xs flex justify-center items-end">
       <span>امتیاز کاربران</span>
       <span>({{ rating }})</span>
     </div>

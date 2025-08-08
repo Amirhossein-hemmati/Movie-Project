@@ -38,7 +38,7 @@ const isOpen = ref(false);
             <span>سریال</span>
             <span>{{ movieData?.title_en }}</span>
           </span>
-          <span class="text-[14px] flex justify-center items-center gap-x-1">
+          <span class="text-sm flex justify-center items-center gap-x-1">
             <span>{{ movieData?.title_fa }}</span>
             <span>({{ movieData?.year }})</span>
           </span>
@@ -51,13 +51,13 @@ const isOpen = ref(false);
         <span>
           <img src="@/assets/icons/play-circle.svg" alt="play" />
         </span>
-        <span class="text-[14px] font-bold">فصل 3 قسمت 5</span>
+        <span class="text-sm font-bold">فصل 3 قسمت 5</span>
       </div> -->
 
       <!-- Selected Box -->
       <!-- <div class="relative">
         <div
-          class="w-[183px] bg-[#242629] text-white text-[14px] p-3 rounded-[8px] cursor-pointer flex items-center justify-between"
+          class="w-[183px] bg-secondary text-white text-sm p-3 rounded-md cursor-pointer flex items-center justify-between"
           @click="toggleDropdown"
         >
           <div
@@ -72,13 +72,13 @@ const isOpen = ref(false);
 
         <div
           v-if="isOpen"
-          class="absolute z-10 w-full mt-2 bg-[#242629] text-white rounded shadow-lg"
+          class="absolute z-10 w-full mt-2 bg-secondary text-white rounded shadow-lg"
         >
           <div
             v-for="item in qualities"
             :key="item.value"
             @click="selectQuality(item)"
-            class="px-4 py-2 hover:bg-gray-700 cursor-pointer text-[14px]"
+            class="px-4 py-2 hover:bg-gray-700 cursor-pointer text-sm"
           >
             {{ item.label }}
           </div>
@@ -97,14 +97,14 @@ const isOpen = ref(false);
       <div class="flex justify-center items-center gap-x-2">
         <!-- bookmark -->
         <span
-          class="p-3 bg-[#242629] flex justify-center items-center rounded-[4px] cursor-pointer"
+          class="p-3 bg-secondary flex justify-center items-center rounded-sm cursor-pointer"
         >
           <img src="@/assets/icons/bookmark.svg" alt="bookmark" />
         </span>
 
         <!-- share -->
         <span
-          class="p-3 bg-[#242629] flex justify-center items-center rounded-[4px] cursor-pointer"
+          class="p-3 bg-secondary flex justify-center items-center rounded-sm cursor-pointer"
         >
           <img src="@/assets/icons/share.svg" alt="bookmark" />
         </span>
