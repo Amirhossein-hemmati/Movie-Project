@@ -1,28 +1,40 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { apiGetAllMovies } from "../../api/movie";
-import image from "../../assets/images/Poster.svg";
+import { computed } from "vue";
+import { useOpenSurveyStore } from "@/store/useOpenSurveyStore";
+import SurveyMovie from "./SurveyMovie.vue";
 
-const props = defineProps(["episodes"])
-
-
+const props = defineProps(["episodes"]);
+const content = useOpenSurveyStore();
+const isOpen = computed(() => content.isOpen)
 </script>
 
 <template>
-  <div class="h-[464px] overflow-y-auto ">
+  <div class="h-[464px] overflow-y-auto">
     <div
+      v-if="!isOpen"
       v-for="item in episodes"
-      class=" h-[122px] flex justify-start items-center gap-x-2 opacity-60 hover:opacity-100 transition-opacity duration-200 cursor-pointer p-[2px]"
+      class="h-[122px] flex justify-start items-center gap-x-2 opacity-60 hover:opacity-100 transition-opacity duration-200 cursor-pointer p-[2px]"
       :key="item.number"
     >
       <div>
-        <img class="w-[88px] h-full rounded-[4px]" :src="item.poster" :alt="item.title" />
+        <img
+          class="w-[88px] h-full rounded-[4px]"
+          :src="item.poster"
+          :alt="item.title"
+        />
       </div>
-      <div >
+      <div>
         <span class="font-bold">{{ item.title }}</span>
-        <div v-if="item.season && item.episode" class="flex justify-start items-center">
-          <span class="w-[145px] flex justify-start text-[14px] font-light">{{ item.season }}</span>
-          <span class="w-[145px] flex justify-start text-[14px] font-light">{{ item.episode }}</span>
+        <div
+          v-if="item.season && item.episode"
+          class="flex justify-start items-center"
+        >
+          <span class="w-[145px] flex justify-start text-[14px] font-light">{{
+            item.season
+          }}</span>
+          <span class="w-[145px] flex justify-start text-[14px] font-light">{{
+            item.episode
+          }}</span>
         </div>
         <div class="flex justify-start items-center gap-x-[2px]">
           <!-- fire -->
@@ -60,5 +72,6 @@ const props = defineProps(["episodes"])
         </div>
       </div>
     </div>
+    <SurveyMovie v-else/>
   </div>
 </template>

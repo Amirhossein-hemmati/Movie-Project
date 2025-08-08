@@ -1,26 +1,26 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import RatingStars from "../common/RatingStars.vue";
+import RatingStars from "./RatingStars.vue";
 import RatingSection from "./RatingSection.vue";
 
-const props =defineProps(['movieData'])
-const qualities = [
-  { label: "کیفیت 480p - webdl", value: "480p" },
-  { label: "کیفیت 720p - webdl", value: "720p" },
-  { label: "کیفیت 1080p - webdl", value: "1080p" },
-];
+const props = defineProps(["movieData"]);
+// const qualities = [
+//   { label: "کیفیت 480p - webdl", value: "480p" },
+//   { label: "کیفیت 720p - webdl", value: "720p" },
+//   { label: "کیفیت 1080p - webdl", value: "1080p" },
+// ];
 
-const selectedQuality = ref(qualities[2]);
+// const selectedQuality = ref(qualities[2]);
 const isOpen = ref(false);
 
-function toggleDropdown() {
-  isOpen.value = !isOpen.value;
-}
+// function toggleDropdown() {
+//   isOpen.value = !isOpen.value;
+// }
 
-function selectQuality(item: { label: string; value: string }) {
-  selectedQuality.value = item;
-  isOpen.value = false;
-}
+// function selectQuality(item: { label: string; value: string }) {
+//   selectedQuality.value = item;
+//   isOpen.value = false;
+// }
 </script>
 
 <template>
@@ -32,7 +32,9 @@ function selectQuality(item: { label: string; value: string }) {
           <img src="../../assets/images/1080pResolutions.svg" />
         </span>
         <div class="flex flex-col justify-center items-start">
-          <span class="text-[28px] font-bold flex justify-center items-center gap-x-1">
+          <span
+            class="text-[28px] font-bold flex justify-center items-center gap-x-1"
+          >
             <span>سریال</span>
             <span>{{ movieData?.title_en }}</span>
           </span>
@@ -51,7 +53,7 @@ function selectQuality(item: { label: string; value: string }) {
         </span>
         <span class="text-[14px] font-bold">فصل 3 قسمت 5</span>
       </div> -->
-      
+
       <!-- Selected Box -->
       <!-- <div class="relative">
         <div
@@ -84,8 +86,13 @@ function selectQuality(item: { label: string; value: string }) {
       </div> -->
 
       <!-- rating -->
-      <RatingStars />
-      <RatingSection :movieData="movieData"/>
+      <RatingStars
+        :maxStars="5"
+        :width="8"
+        :height="8"
+        :showResultNumber="true"
+      />
+      <RatingSection :movieData="movieData" />
       <div class="flex justify-center items-center gap-x-2">
         <!-- bookmark -->
         <span

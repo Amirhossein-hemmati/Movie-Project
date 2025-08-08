@@ -1,8 +1,9 @@
 import { defineConfig, loadEnv } from "vite";
 import vue from "@vitejs/plugin-vue";
 import basicSsl from "@vitejs/plugin-basic-ssl";
-
+import { fileURLToPath, URL } from 'node:url'
 import tailwindcss from "@tailwindcss/vite";
+
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
   return {
@@ -39,6 +40,16 @@ export default defineConfig(({ mode }) => {
           },
         },
       },
+    },
+     resolve: {
+      alias: {
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        'api': fileURLToPath(new URL("./src/api", import.meta.url)),
+        'stores': fileURLToPath(new URL("./src/store", import.meta.url)),
+        'components': fileURLToPath(new URL("./src/components", import.meta.url)),
+        'types': fileURLToPath(new URL("./src/types", import.meta.url)),
+        'utils': fileURLToPath(new URL("./src/utils", import.meta.url)),
+      }
     },
     css: {
       preprocessorOptions: {

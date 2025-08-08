@@ -12,3 +12,7 @@ body {
   padding: 0;
   color: white;
 }
+
+@theme {
+  --color-primary: #1B1C1F
+}
