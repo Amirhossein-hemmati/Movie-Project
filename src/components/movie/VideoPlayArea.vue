@@ -51,7 +51,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative max-w-3xl mx-auto bg-black rounded-lg overflow-hidden">
+  <div class="relative  mx-auto bg-black rounded-lg overflow-hidden">
     <!-- Cover overlay -->
     <div
       v-if="showCover"
@@ -90,6 +90,7 @@ onMounted(() => {
         default
       />
     </video>
+
     <!-- Subtitle toggle button -->
     <button
       @click="toggleSubtitles"
@@ -97,7 +98,6 @@ onMounted(() => {
       class="absolute top-4 right-4 z-20 text-black rounded flex items-center justify-center cursor-pointer"
     >
       <template v-if="subtitlesEnabled">
-        <!-- SVG for "On" -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28"
@@ -112,7 +112,6 @@ onMounted(() => {
         </svg>
       </template>
       <template v-else>
-        <!-- SVG for "Off" -->
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="28"

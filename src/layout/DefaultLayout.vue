@@ -4,9 +4,9 @@ import Header from "../components/header/Header.vue";
 </script>
 
 <template>
-  <div>
+  <div class="max-w-[2100px] flex justify-center items-center flex-col">
     <Header />
-    <main class="!px-30 h-full">
+    <main class="!px-30 w-full h-full">
       <RouterView />
     </main>
   </div>

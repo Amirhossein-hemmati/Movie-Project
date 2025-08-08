@@ -29,7 +29,7 @@ const isOpen = ref(false);
     <div class="flex items-center justify-between gap-x-2">
       <div class="flex items-center gap-x-2">
         <span>
-          <img src="../../assets/images/1080pResolutions.svg" />
+          <img src="@/assets/images/1080pResolutions.svg" />
         </span>
         <div class="flex flex-col justify-center items-start">
           <span
@@ -49,7 +49,7 @@ const isOpen = ref(false);
       <!-- chapter -->
       <!-- <div class="min-w-max flex justify-center items-center gap-x-2">
         <span>
-          <img src="../../assets/icons/play-circle.svg" alt="play" />
+          <img src="@/assets/icons/play-circle.svg" alt="play" />
         </span>
         <span class="text-[14px] font-bold">فصل 3 قسمت 5</span>
       </div> -->
@@ -64,7 +64,7 @@ const isOpen = ref(false);
             class="w-full flex items-center justify-center flex-row-reverse gap-2"
           >
             <div>
-              <img src="../../assets/icons/left-arrow.svg" class="-rotate-90" />
+              <img src="@/assets/icons/left-arrow.svg" class="-rotate-90" />
             </div>
             <span>{{ selectedQuality.label }}</span>
           </div>
@@ -99,14 +99,14 @@ const isOpen = ref(false);
         <span
           class="p-3 bg-[#242629] flex justify-center items-center rounded-[4px] cursor-pointer"
         >
-          <img src="../../assets/icons/bookmark.svg" alt="bookmark" />
+          <img src="@/assets/icons/bookmark.svg" alt="bookmark" />
         </span>
 
         <!-- share -->
         <span
           class="p-3 bg-[#242629] flex justify-center items-center rounded-[4px] cursor-pointer"
         >
-          <img src="../../assets/icons/share.svg" alt="bookmark" />
+          <img src="@/assets/icons/share.svg" alt="bookmark" />
         </span>
       </div>
     </div>

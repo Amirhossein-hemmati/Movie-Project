@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import webLogo from "../../assets/images/FilmTarsnakLogo.svg";
+import webLogo from "@/assets/images/FilmTarsnakLogo.svg";
 const style = {
   link: " cursor-pointer",
   menu: "w-12 h-12 bg-[#1B1C1F] flex justify-center items-center rounded-[4px] cursor-pointer",
@@ -25,27 +25,27 @@ const style = {
     <div class="flex justify-center items-center gap-1">
       <!-- left arrow -->
       <span class="w-6 h-6 flex justify-center items-center cursor-pointer">
-        <img src="../../assets/icons/left-arrow.svg" alt="left-Arrow" />
+        <img src="@/assets/icons/left-arrow.svg" alt="left-Arrow" />
       </span>
 
       <!-- bell -->
       <span :class="style.menu">
-        <img src="../../assets/icons/bell.svg" alt="bell" />
+        <img src="@/assets/icons/bell.svg" alt="bell" />
       </span>
 
       <!-- bookmarks -->
       <span :class="style.menu">
-        <img src="../../assets/icons/bookmarks.svg" alt="bookmarks" />
+        <img src="@/assets/icons/bookmarks.svg" alt="bookmarks" />
       </span>
 
       <!-- search -->
       <span :class="style.menu">
-        <img src="../../assets/icons/search.svg" alt="search" />
+        <img src="@/assets/icons/search.svg" alt="search" />
       </span>
 
       <!-- profile -->
       <span :class="style.menu">
-        <img src="../../assets/icons/profile.svg" alt="profile" />
+        <img src="@/assets/icons/profile.svg" alt="profile" />
       </span>
     </div>
   </div>

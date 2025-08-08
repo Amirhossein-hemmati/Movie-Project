@@ -155,7 +155,7 @@ function handleSendSurvey() {
           class="flex justify-center items-center gap-x-[9px] bg-[#AB070F] text-[14px] px-6 py-[10px] rounded-tl-[4px] rounded-tr-[4px] rounded-br-[4px] rounded-bl-[12px] cursor-pointer"
         >
           <span>
-            <img src="../../assets/icons/tick-circle.svg" />
+            <img src="@/assets/icons/tick-circle.svg" />
           </span>
           <span> ارسال نظر </span>
         </button>

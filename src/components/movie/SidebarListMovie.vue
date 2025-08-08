@@ -41,7 +41,7 @@ const isOpen = computed(() => content.isOpen)
           <span
             class="w-6 h-6 flex justify-center items-center bg-[#FB7800] p-[2px] rounded-[4px]"
           >
-            <img src="../../assets/icons/fire.svg" :alt="`fire + ${item.id}`" />
+            <img src="@/assets/icons/fire.svg" :alt="`fire + ${item.id}`" />
           </span>
 
           <!-- subtitle -->
@@ -50,7 +50,7 @@ const isOpen = computed(() => content.isOpen)
           >
             <span>
               <img
-                src="../../assets/icons/subtitle.svg"
+                src="@/assets/icons/subtitle.svg"
                 :alt="`subtitle + ${item.id}`"
               />
             </span>
@@ -63,7 +63,7 @@ const isOpen = computed(() => content.isOpen)
           >
             <span>
               <img
-                src="../../assets/icons/dubbed.svg"
+                src="@/assets/icons/dubbed.svg"
                 :alt="`dubbed + ${item.id}`"
               />
             </span>

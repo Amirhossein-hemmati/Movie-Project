@@ -14,7 +14,7 @@ const props = defineProps(["movieData"]);
       </span>
 
       <div class="w-full h-full">
-        <img class="w-6 h-6" src="../../assets/images/rottenTomatoes.svg" />
+        <img class="w-6 h-6" src="@/assets/images/rottenTomatoes.svg" />
       </div>
     </div>
     <div v-if="movieData?.rotten" class="flex justify-center items-center gap-x-1">
@@ -24,7 +24,7 @@ const props = defineProps(["movieData"]);
       </span>
 
       <div class="w-full h-full">
-        <img class="w-6 h-6" src="../../assets/images/IMDB.svg" />
+        <img class="w-6 h-6" src="@/assets/images/IMDB.svg" />
       </div>
     </div>
     <div v-if="movieData?.metacritic" class="flex justify-center items-center gap-x-1">
@@ -33,7 +33,7 @@ const props = defineProps(["movieData"]);
       </span>
 
       <div class="w-full h-full">
-        <img class="w-6 h-6" src="../../assets/images/metacritic.svg" />
+        <img class="w-6 h-6" src="@/assets/images/metacritic.svg" />
       </div>
     </div>
   </div>

@@ -17,7 +17,7 @@ function handleBackButton () {
     <span class="text-[14px] font-bold"> بازگشت </span>
     <!-- left arrow -->
     <span class="w-6 h-6 flex justify-center items-center cursor-pointer">
-      <img src="../../assets/icons/left-arrow.svg" alt="left-Arrow" />
+      <img src="@/assets/icons/left-arrow.svg" alt="left-Arrow" />
     </span>
   </button>
 </template>

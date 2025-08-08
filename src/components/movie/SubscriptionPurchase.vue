@@ -8,7 +8,7 @@ import { ref } from "vue";
       <span
         class="rounded-[6px] p-2 bg-[#493018] flex justify-center items-center"
       >
-        <img src="../../assets/icons/danger.svg" alt="danger" />
+        <img src="@/assets/icons/danger.svg" alt="danger" />
       </span>
       <span class="text-[14px] text-white"
         >پیش از شروع تماشای آنلاین وی پی ان خود را خاموش کنید</span
